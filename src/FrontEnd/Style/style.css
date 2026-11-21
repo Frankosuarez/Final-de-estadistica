@@ -1,0 +1,208 @@
+
+/* CONFIGURACION GENERAL */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 35px;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: #f3f5f9;
+    color: #263247;
+}
+
+h1, h2, h3 {
+    color: #1e293b;
+}
+
+/* SECCION DE PRODUCTOS */
+
+#productos-container {
+    width: 100%;
+    margin-bottom: 35px;
+}
+
+#productos-container h1 {
+    font-size: 27px;
+    margin-bottom: 20px;
+}
+
+/* TABLA DE PRODUCTOS */
+
+#lista-de-productos-container {
+    width: 100%;
+    overflow-x: auto;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+}
+
+#tabla-de-productos {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+#tabla-de-productos thead {
+    background-color: #0bab19;
+    color: white;
+}
+
+#tabla-de-productos th {
+    padding: 17px 20px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+#tabla-de-productos td {
+    padding: 15px 20px;
+    border-bottom: 1px solid #edf0f5;
+    font-size: 14px;
+}
+
+#tabla-de-productos tbody tr:nth-child(even) {
+    background-color: #f7f9fc;
+}
+
+#tabla-de-productos tbody tr:hover {
+    background-color: #eaf0ff;
+    transition: background-color 0.2s ease;
+}
+
+#tabla-de-productos tbody tr:last-child td {
+    border-bottom: none;
+}
+
+
+/* CONTENEDORES DE GRAFICOS */
+
+.grafico-circular-contenedor,
+.grafico-dispersion-contenedor,
+.grafico-de-caja-contenedor {
+    background-color: white;
+    padding: 25px;
+    border-radius: 14px;
+
+    box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+
+    margin-bottom: 25px;
+
+    position: relative;
+    width: 100%;
+    height: 400px;
+}
+
+/* GRAFICO CIRCULAR */
+
+.grafico-circular-contenedor {
+    max-width: 650px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* GRAFICO DE DISPERSION */
+
+.grafico-dispersion-contenedor {
+    width: 100%;
+    height: 450px;
+}
+
+/* GRAFICO DE CAJA */
+
+.grafico-de-caja-contenedor {
+    width: 100%;
+    height: 350px;
+}
+
+/* CANVAS */
+
+.grafico-circular-contenedor canvas,
+.grafico-dispersion-contenedor canvas,
+.grafico-de-caja-contenedor canvas {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+
+/* CONTENEDOR DE ESTADISTICAS */
+
+#tabla-estadistica-contenedor {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+    width: 100%;
+    margin-top: 35px;
+}
+
+/* TABLAS */
+
+#tabla-estadistica-contenedor table {
+    width: 100%;
+    background-color: white;
+
+    border-collapse: collapse;
+    border-radius: 12px;
+    overflow: hidden;
+
+    box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+}
+
+/* TITULOS DE TABLAS */
+
+#tabla-estadistica-contenedor table::before {
+    display: block;
+    padding: 18px;
+    background-color: #0bab19;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+/* IDENTIFICACION DE CADA TABLA */
+
+#tabla-estadistica-contenedor table:nth-child(1)::before {
+    content: "Estadísticas de precios";
+}
+
+#tabla-estadistica-contenedor table:nth-child(2)::before {
+    content: "Estadísticas de ventas";
+}
+
+#tabla-estadistica-contenedor table:nth-child(3)::before {
+    content: "Relación entre variables";
+}
+
+/* CELDAS */
+
+#tabla-estadistica-contenedor td {
+    padding: 14px;
+    font-size: 13px;
+    border-bottom: 1px solid #edf0f5;
+}
+
+/* PRIMERA COLUMNA */
+
+#tabla-estadistica-contenedor td:first-child {
+    color: #111112;
+    font-weight: 600;
+}
+
+/* SEGUNDA COLUMNA */
+
+#tabla-estadistica-contenedor td:last-child {
+    text-align: right;
+    font-weight: 700;
+    color: #101010;
+}
+
+/* FILAS ALTERNADAS */
+
+#tabla-estadistica-contenedor tr:nth-child(even) {
+    background-color: #f7f9fc;
+}
+
+#tabla-estadistica-contenedor tr:last-child td {
+    border-bottom: none;
+}
