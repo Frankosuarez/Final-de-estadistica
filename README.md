@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Aplicación de Auditoría Estadística para Mayoristas
 
 ##  Descripción del proyecto
