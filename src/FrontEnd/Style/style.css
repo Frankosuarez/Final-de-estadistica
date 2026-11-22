@@ -1,9 +1,7 @@
 
-/* CONFIGURACION GENERAL */
-
 * {
     box-sizing: border-box;
-}
+  }
 
 body {
     margin: 0;
@@ -11,13 +9,14 @@ body {
     font-family: 'Segoe UI', Arial, sans-serif;
     background-color: #f3f5f9;
     color: #263247;
+
 }
 
 h1, h2, h3 {
     color: #1e293b;
 }
 
-/* SECCION DE PRODUCTOS */
+/* Productos */
 
 #productos-container {
     width: 100%;
@@ -29,7 +28,6 @@ h1, h2, h3 {
     margin-bottom: 20px;
 }
 
-/* TABLA DE PRODUCTOS */
 
 #lista-de-productos-container {
     width: 100%;
@@ -76,7 +74,7 @@ h1, h2, h3 {
 }
 
 
-/* CONTENEDORES DE GRAFICOS */
+/* Graficos */
 
 .grafico-circular-contenedor,
 .grafico-dispersion-contenedor,
@@ -94,7 +92,6 @@ h1, h2, h3 {
     height: 400px;
 }
 
-/* GRAFICO CIRCULAR */
 
 .grafico-circular-contenedor {
     max-width: 650px;
@@ -102,21 +99,18 @@ h1, h2, h3 {
     margin-right: auto;
 }
 
-/* GRAFICO DE DISPERSION */
 
 .grafico-dispersion-contenedor {
     width: 100%;
     height: 450px;
 }
 
-/* GRAFICO DE CAJA */
 
 .grafico-de-caja-contenedor {
     width: 100%;
     height: 350px;
 }
 
-/* CANVAS */
 
 .grafico-circular-contenedor canvas,
 .grafico-dispersion-contenedor canvas,
@@ -126,7 +120,7 @@ h1, h2, h3 {
 }
 
 
-/* CONTENEDOR DE ESTADISTICAS */
+/* Tabla de estadisticas */
 
 #tabla-estadistica-contenedor {
     display: grid;
@@ -136,7 +130,6 @@ h1, h2, h3 {
     margin-top: 35px;
 }
 
-/* TABLAS */
 
 #tabla-estadistica-contenedor table {
     width: 100%;
@@ -149,7 +142,6 @@ h1, h2, h3 {
     box-shadow: 0 4px 15px rgba(0,0,0,0.06);
 }
 
-/* TITULOS DE TABLAS */
 
 #tabla-estadistica-contenedor table::before {
     display: block;
@@ -160,7 +152,6 @@ h1, h2, h3 {
     font-weight: 600;
 }
 
-/* IDENTIFICACION DE CADA TABLA */
 
 #tabla-estadistica-contenedor table:nth-child(1)::before {
     content: "Estadísticas de precios";
@@ -174,7 +165,6 @@ h1, h2, h3 {
     content: "Relación entre variables";
 }
 
-/* CELDAS */
 
 #tabla-estadistica-contenedor td {
     padding: 14px;
@@ -182,14 +172,12 @@ h1, h2, h3 {
     border-bottom: 1px solid #edf0f5;
 }
 
-/* PRIMERA COLUMNA */
 
 #tabla-estadistica-contenedor td:first-child {
     color: #111112;
     font-weight: 600;
 }
 
-/* SEGUNDA COLUMNA */
 
 #tabla-estadistica-contenedor td:last-child {
     text-align: right;
@@ -197,7 +185,6 @@ h1, h2, h3 {
     color: #101010;
 }
 
-/* FILAS ALTERNADAS */
 
 #tabla-estadistica-contenedor tr:nth-child(even) {
     background-color: #f7f9fc;

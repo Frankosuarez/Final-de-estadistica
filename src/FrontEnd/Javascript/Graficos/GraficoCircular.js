@@ -1,11 +1,14 @@
-export function renderizarGraficoCircular(canvas, etiquetas, precios) {
+export function renderizarGraficoCircular(categorias) {
+  let canvas = document.getElementById("grafico-circular");
   if (!canvas) return null;
-
+  
   const graficoExistente = Chart.getChart(canvas);
+  let nombres = categorias.map(categoria => categoria.nombre);
+  let ganancias = categorias.map(categoria => categoria.ganancias);
 
   if (graficoExistente) {
-    graficoExistente.data.labels = etiquetas;
-    graficoExistente.data.datasets[0].data = precios;
+    graficoExistente.data.labels = nombres;
+    graficoExistente.data.datasets[0].data = ganancias;
     graficoExistente.update();
     return graficoExistente;
   }
@@ -13,9 +16,9 @@ export function renderizarGraficoCircular(canvas, etiquetas, precios) {
   return new Chart(canvas, {
     type: 'pie',
     data: {
-      labels: etiquetas,
+      labels: nombres,
       datasets: [{
-        data: precios
+        data: ganancias
       }]
     },options: {
     responsive: true,

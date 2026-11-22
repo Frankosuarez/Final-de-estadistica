@@ -1,8 +1,8 @@
-export function renderizarGraficoCaja(canvas, precios) {
+export function renderizarGraficoDeCaja(canvas, precios) {
   if (!canvas) return null;
 
   const graficoExistente = Chart.getChart(canvas);
-  const datosBoxplot = [precios]; // Un array de valores por cada categoría en `labels`
+  const datosBoxplot = [precios];
 
   if (graficoExistente) {
     graficoExistente.data.datasets[0].data = datosBoxplot;

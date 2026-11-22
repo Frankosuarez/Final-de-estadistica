@@ -1,4 +1,3 @@
-// MEDIA
 export function calcularMedia(datos) {
     let sumatoria = 0;
 
@@ -8,25 +7,21 @@ export function calcularMedia(datos) {
 
     let media = sumatoria / datos.length;
 
-    return media;
+    return Math.round(   media   );
 }
 
-
-// MEDIANA
 export function calcularMediana(datos) {
     let ordenados = [...datos].sort((a, b) => a - b); //crea un array temporal ordenado de menor a mayor
 
     let mitad = Math.floor(ordenados.length / 2);  //.floor() hace que el resultado se redondee para abajo
 
     if (ordenados.length % 2 === 0) { //es por si N es par
-        return (ordenados[mitad - 1] + ordenados[mitad]) / 2;
+        return Math.round(   (ordenados[mitad - 1] + ordenados[mitad]) / 2    );
     }
 
-    return ordenados[mitad];
+    return Math.round(   ordenados[mitad]   );
 }
 
-
-// VARIANZA
  export function calcularVarianza(datos) {
 
     let media = calcularMedia(datos);
@@ -40,30 +35,25 @@ export function calcularMediana(datos) {
 
     let varianza = (sumatoria / datos.length) - media; //datos.lenght equivale a N
 
-    return varianza;
+    return Math.round(   varianza   );
 }
 
-
-// DESVÍO ESTÁNDAR
 export function calcularDesvioEstandar(datos) {
     let varianza = calcularVarianza(datos);
     let desvioEstandar = Math.sqrt(varianza);//.sqrt devuelve la raiz cuadrada de la variable
 
-    return desvioEstandar; 
+    return Math.round(   desvioEstandar  ); 
 }
 
-
-// COEFICIENTE DE VARIACIÓN
 export function calcularCoeficienteVariacion(datos) {
     let desvio = calcularDesvioEstandar(datos);
     let media = calcularMedia(datos);
 
     let coeficienteDeVariacion = (desvio / media) * 100;
     
-    return coeficienteDeVariacion;
+    return Math.round(   coeficienteDeVariacion );
 }
 
-// COVARIANZA
 export function calcularCovarianza(datosX, datosY) {
 
     let mediaX = calcularMedia(datosX);
@@ -77,11 +67,9 @@ export function calcularCovarianza(datosX, datosY) {
 
     let covarianza = (sumatoriaXY / datosX.length) - (mediaX * mediaY);
 
-    return covarianza;
+    return Math.round(   covarianza  );
 }
 
-
-// COEFICIENTE DE CORRELACIÓN
 export function calcularCoeficienteDeCorrelacion(datosX, datosY) {
 
     let covarianza = calcularCovarianza(datosX, datosY);

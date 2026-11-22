@@ -1,4 +1,4 @@
-export function renderizarGraficoDispersion(canvas, puntos) {
+export function renderizarGraficoDeDispersion(canvas, puntos) {
   if (!canvas) return null;
 
   const graficoExistente = Chart.getChart(canvas);
