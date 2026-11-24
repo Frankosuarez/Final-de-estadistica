@@ -43,33 +43,33 @@ h1, h2, h3 {
     text-align: left;
 }
 
-#tabla-de-productos thead {
+#tabla thead {
     background-color: #0bab19;
     color: white;
 }
 
-#tabla-de-productos th {
+#tabla th {
     padding: 17px 20px;
     font-size: 14px;
     font-weight: 600;
 }
 
-#tabla-de-productos td {
+#tabla td {
     padding: 15px 20px;
     border-bottom: 1px solid #edf0f5;
     font-size: 14px;
 }
 
-#tabla-de-productos tbody tr:nth-child(even) {
+#tabla tbody tr:nth-child(even) {
     background-color: #f7f9fc;
 }
 
-#tabla-de-productos tbody tr:hover {
+#tabla tbody tr:hover {
     background-color: #eaf0ff;
     transition: background-color 0.2s ease;
 }
 
-#tabla-de-productos tbody tr:last-child td {
+#tabla tbody tr:last-child td {
     border-bottom: none;
 }
 

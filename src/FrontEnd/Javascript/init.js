@@ -1,20 +1,18 @@
-import { categorias } from "../../Backend/seed.js" //cambiar cuando haya servidor
+import { categorias } from "../../Backend/seed.js"
 
 import { listarCategorias } from "./Tablas/tablaDeCategorias.js";
 import { listarProductos } from "./Tablas/tablaDeProductos.js";
-import { listarMedidasEstadisticas } from "./Tablas/tablaEstadistica.js";
+import { generarContenedorEstadisticas } from "./Tablas/tablaEstadistica.js";
 
 import { renderizarGraficoCircular } from "./Graficos/GraficoCircular.js";
 import { renderizarGraficoDeDispersion } from "./Graficos/graficoDeDispersion.js";
 import { renderizarGraficoDeCaja } from "./Graficos/graficoDeCaja.js";
 
 
-const categoria = categorias[0];
-
-
-function actualizarGraficos(categoria) 
+function actualizarGraficos(categoria) //ver si conservar dps 
 {
   let productos = categoria.productos;
+
   const canvasDispersion = document.getElementById("grafico-de-dispersion");
   const canvasCaja = document.getElementById("grafico-de-caja");
 
@@ -31,46 +29,99 @@ function actualizarGraficos(categoria)
   renderizarGraficoDeCaja(canvasCaja, preciosDeProductos);
 }
 
-
 function cargarTablaDeProductos(categoria)
 {
-    const cabecera = document.getElementById("cabecera-de-tabla");
-
-    let nombre = document.createElement("th");
-    nombre.textContent = "Nombre";
-
-    let precio = document.createElement("th");
-    precio.textContent = "Precio";
-
-    let ventas = document.createElement("th");
-    ventas.textContent = "Ventas";
-
-    cabecera.appendChild(nombre);
-    cabecera.appendChild(precio);
-    cabecera.appendChild(ventas);
-
+  const tabla = document.getElementById("tabla");
+    tabla.innerHTML = `<thead>
+                           <tr id="cabecera-de-tabla"></tr>
+                       </thead>
+                       <tbody id="datos-de-tabla"></tbody>`
+    
     listarProductos(categoria);
+
+    const btn = document.createElement("button");
+    btn.textContent = "volver";
+    btn.addEventListener("click", () => {cargarTablaDeCategorias(categorias); }) 
+
+    tabla.appendChild(btn);
+
+    //cargar graficos
+
+    const contenedorDeGraficos = document.getElementById("graficos-contenedor");
+    contenedorDeGraficos.innerHTML = "";
+
+    //grafico de dispersion
+    const contenedorDispersion = document.createElement("div");
+    contenedorDispersion.id = "grafico-dispersion-contenedor";
+    contenedorDispersion.className = "grafico-dispersion-contenedor";
+
+    const canvasDispersion = document.createElement("canvas");
+    canvasDispersion.id = "grafico-de-dispersion";
+
+    contenedorDispersion.appendChild(canvasDispersion);
+
+    
+    //grafico de caja
+    const contenedorCaja = document.createElement("div");
+    contenedorCaja.id = "grafico-de-caja-contenedor";
+    contenedorCaja.className = "grafico-de-caja-contenedor";
+
+    const canvasCaja = document.createElement("canvas");
+    canvasCaja.id = "grafico-de-caja";
+
+    contenedorCaja.appendChild(canvasCaja);
+
+
+
+    contenedorDeGraficos.appendChild(contenedorDispersion);
+    contenedorDeGraficos.appendChild(contenedorCaja);
+    
+
     actualizarGraficos(categoria);
-    listarMedidasEstadisticas(categoria);
+
+    //cargar tablas con las estadisticas
+    const contenedorDeEstadisticas = document.getElementById("estadisticas");
+    const estadisticas = generarContenedorEstadisticas(categoria);
+    contenedorDeEstadisticas.appendChild(estadisticas);
 }
 
-function cargarTablaDeCategorias(categorias)
-{
-    const cabecera = document.getElementById("cabecera-de-tabla");
 
-    let categoria = document.createElement("th");
-    categoria.textContent = "Categoria";
+function cargarTablaDeCategorias(categorias) {
 
-    let ganancias = document.createElement("th");
-    ganancias.textContent = "Ganancias";
+    const tabla = document.getElementById("tabla");
+      tabla.innerHTML = `<thead>
+                           <tr id="cabecera-de-tabla"></tr>
+                       </thead>
+                       <tbody id="datos-de-tabla"></tbody>`
 
-    cabecera.appendChild(categoria);
-    cabecera.appendChild(ganancias);
+    listarCategorias(categorias, cargarTablaDeProductos);
 
-    listarCategorias(categorias);
+    //grafico circular
+    const contenedorDeGraficos = document.getElementById("graficos-contenedor");
+    contenedorDeGraficos.innerHTML = "";
+
+    let contenedorEstadisticas = document.getElementById("estadisticas");
+    contenedorEstadisticas.innerHTML = "";
+
+    const contenedorGraficoCircular = document.createElement("div");
+    contenedorGraficoCircular.id = "grafico-circular-contenedor";
+    contenedorGraficoCircular.className = "grafico-circular-contenedor";
+
+    const graficoCircular = document.createElement("canvas");
+    graficoCircular.id = "grafico-circular";
+    graficoCircular.className = "grafico-circular";
+
+    contenedorGraficoCircular.appendChild(graficoCircular);
+    contenedorDeGraficos.appendChild(contenedorGraficoCircular);
+
     renderizarGraficoCircular(categorias);
+
 }
 
-//Hacer que alternen con un boton mas adelante
-cargarTablaDeProductos(categoria);
-// cargarTablaDeCategorias(categorias);
+
+
+cargarTablaDeCategorias(categorias);
+
+
+
+

@@ -7,19 +7,46 @@ const categoria3 = new Categoria("Jugueteria");
 const categoria4 = new Categoria("Muebleria");
 
 //datos de prueba
-const producto1 = new Producto("televisor", 1200, 12, "electrodomesticos");
-const producto2 = new Producto("computadora", 2000, 10, "electrodomesticos");
-const producto3 = new Producto("celular", 600, 16, "electrodomesticos");
-const producto4 = new Producto("microondas", 900, 16, "electrodomesticos");
-const producto5 = new Producto("cafetera", 500, 18, "electrodomesticos");
-const producto6 = new Producto("tostadora", 400, 20, "electrodomesticos");
+const producto1 = new Producto("televisor", 1800, 40);
+const producto2 = new Producto("computadora", 2200, 32);
+const producto3 = new Producto("celular", 700, 75);
+const producto4 = new Producto("microondas", 1200, 60);
+const producto5 = new Producto("cafetera", 900, 68);
+const producto6 = new Producto("tostadora", 500, 82);
 
-export const productos = [producto1, producto2, producto3, producto4, producto5, producto6];
+const productos1 = [producto1, producto2, producto3, producto4, producto5, producto6];
 
-//agregar productos de otras categorias dps
-categoria1.agregarProducto(productos);
-categoria2.agregarProducto(productos);
-categoria3.agregarProducto(productos);
-categoria4.agregarProducto(productos);
+const producto7 = new Producto("jamon", 20, 900);
+const producto8 = new Producto("queso", 30, 840);
+const producto9 = new Producto("salame", 25, 210);
+const producto10 = new Producto("cheddar", 26, 218);
+const producto11 = new Producto("roquefort", 40, 90);
+const producto12 = new Producto("jamon economico", 15, 200);
+
+const productos2 = [producto7, producto8, producto9, producto10, producto11, producto12];
+
+const producto13 = new Producto("hot wheels", 14, 1200);
+const producto14 = new Producto("autos a control remoto", 50, 100);
+const producto15 = new Producto("pistola de burbujas", 8, 160);
+const producto16 = new Producto("consola de tetris", 35, 80);
+const producto17 = new Producto("tablero de ajedrez", 30, 90);
+const producto18 = new Producto("cartas de uno", 5, 250);
+
+const productos3 = [producto13, producto14, producto15, producto16, producto17, producto18];
+
+const producto19 = new Producto("sillon", 200, 200);
+const producto20 = new Producto("mesas", 150, 300);
+const producto21 = new Producto("sillas", 30, 650);
+const producto22 = new Producto("escriotrios", 180, 250);
+const producto23 = new Producto("estantes", 120, 350);
+const producto24 = new Producto("armarios", 135, 360);
+
+const productos4 = [producto19, producto20, producto21, producto22, producto23, producto24];
+
+//agregar productos de otra categoria dps
+categoria1.agregarProducto(productos1);
+categoria2.agregarProducto(productos2);
+categoria3.agregarProducto(productos3);
+categoria4.agregarProducto(productos4);
 
 export const categorias = [categoria1, categoria2, categoria3, categoria4];

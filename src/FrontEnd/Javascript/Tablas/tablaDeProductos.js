@@ -22,4 +22,7 @@ export function listarProductos(categoria)
 
         contenedor.appendChild(fila);
     })
+
+    
+
 }

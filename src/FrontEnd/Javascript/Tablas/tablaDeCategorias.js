@@ -1,21 +1,24 @@
-export function listarCategorias(categorias)
-{
-    console.log(categorias);
+export function listarCategorias(categorias, alSeleccionar) {
 
     const tabla = document.getElementById("datos-de-tabla");
 
-    categorias.forEach(categoria => 
-        {
-            let fila = document.createElement("tr")
+    categorias.forEach(categoria => {
 
-            let nombre = document.createElement("td");
-            nombre.textContent = categoria.nombre;
+        const fila = document.createElement("tr");
 
-            let ganancia = document.createElement("td");
-            ganancia.textContent = categoria.ganancias;
+        const nombre = document.createElement("td");
+        nombre.textContent = categoria.nombre;
 
-            fila.appendChild(nombre);
-            fila.appendChild(ganancia);
-            tabla.appendChild(fila);
+        const ganancias = document.createElement("td");
+        ganancias.textContent = categoria.ganancias;
+
+        fila.appendChild(nombre);
+        fila.appendChild(ganancias);
+
+        fila.addEventListener("click", () => {
+            alSeleccionar(categoria);
         });
+
+        tabla.appendChild(fila);
+    });
 }
