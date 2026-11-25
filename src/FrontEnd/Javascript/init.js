@@ -10,6 +10,7 @@ import { renderizarGraficoDeDispersion } from "./Graficos/graficoDeDispersion.js
 import { renderizarGraficoDeCaja } from "./Graficos/graficoDeCaja.js";
 import { RenderizarGraficoDeLineas } from "./Graficos/graficoDeLineas.js";
 
+
 let anterior = [];
 
 function actualizarGraficos(categoria)
@@ -50,6 +51,7 @@ function cargarTablaDeProductos(categoria)
     btn.addEventListener("click", () => { cargarTablaDeCategorias(anterior); }) //ver dps
 
     tabla.appendChild(btn);
+
 
     //cargar graficos
 

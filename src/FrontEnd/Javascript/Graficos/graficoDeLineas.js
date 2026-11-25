@@ -1,4 +1,4 @@
-export function RenderizarGraficoDeLineas(fechas) {
+export function RenderizarGraficoDeLineas(datos) {
 
     const grafico = document.getElementById("grafico-de-lineas");
 
@@ -6,11 +6,11 @@ export function RenderizarGraficoDeLineas(fechas) {
         type: "line",
 
         data: {
-            labels: fechas.map(fecha => fecha.mes),
+            labels: datos.map(dato => dato.mes),
 
             datasets: [{
                 label: "Ganancias mensuales",
-                data: fechas.map(fecha => fecha.ganancias),
+                data: datos.map(dato => dato.ganancias),
 
                 borderColor: "#16a34a",
                 backgroundColor: "rgba(22, 163, 74, 0.15)",

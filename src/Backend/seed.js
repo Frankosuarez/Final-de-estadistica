@@ -42,7 +42,7 @@ const productos3 = [producto13, producto14, producto15, producto16, producto17, 
 const producto19 = new Producto("sillon", 200, 200);
 const producto20 = new Producto("mesas", 150, 300);
 const producto21 = new Producto("sillas", 30, 650);
-const producto22 = new Producto("escriotrios", 180, 250);
+const producto22 = new Producto("escritorios", 180, 250);
 const producto23 = new Producto("estantes", 120, 350);
 const producto24 = new Producto("armarios", 135, 360);
 

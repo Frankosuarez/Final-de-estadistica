@@ -199,3 +199,19 @@ h1, h2, h3 {
     height: 400px;
     padding: 20px;
 }
+
+.tabla-de-graficos thead
+{
+    display: block;
+    padding: 18px;
+    background-color: #0bab19;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.analisis-de-datos
+{
+    display: flex;
+    gap: 70px;
+}

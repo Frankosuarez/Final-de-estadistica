@@ -81,3 +81,16 @@ export function calcularCoeficienteDeCorrelacion(datosX, datosY) {
     return coeficienteDeCorrelacion;
 }
 
+
+export function calcularPorcentajeGanancia(categorias, categoria) {
+
+    let gananciaTotal = 0;
+
+    categorias.forEach(categoria => {
+        gananciaTotal += categoria.ganancias;
+    });
+
+    let porcentaje = (categoria.ganancias / gananciaTotal) * 100;
+
+    return Math.round( porcentaje );
+}
