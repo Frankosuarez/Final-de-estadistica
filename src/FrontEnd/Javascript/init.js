@@ -1,5 +1,6 @@
-import { categorias } from "../../Backend/seed.js"
+import { fechas } from "../../Backend/seed.js"
 
+import { listarFechas } from "./Tablas/tablaDeFechas.js";
 import { listarCategorias } from "./Tablas/tablaDeCategorias.js";
 import { listarProductos } from "./Tablas/tablaDeProductos.js";
 import { generarContenedorEstadisticas } from "./Tablas/tablaEstadistica.js";
@@ -7,9 +8,11 @@ import { generarContenedorEstadisticas } from "./Tablas/tablaEstadistica.js";
 import { renderizarGraficoCircular } from "./Graficos/GraficoCircular.js";
 import { renderizarGraficoDeDispersion } from "./Graficos/graficoDeDispersion.js";
 import { renderizarGraficoDeCaja } from "./Graficos/graficoDeCaja.js";
+import { RenderizarGraficoDeLineas } from "./Graficos/graficoDeLineas.js";
 
+let anterior = [];
 
-function actualizarGraficos(categoria) //ver si conservar dps 
+function actualizarGraficos(categoria)
 {
   let productos = categoria.productos;
 
@@ -31,6 +34,9 @@ function actualizarGraficos(categoria) //ver si conservar dps
 
 function cargarTablaDeProductos(categoria)
 {
+  const titulo = document.getElementById("titulo");
+  titulo.textContent = "Productos";
+
   const tabla = document.getElementById("tabla");
     tabla.innerHTML = `<thead>
                            <tr id="cabecera-de-tabla"></tr>
@@ -41,7 +47,7 @@ function cargarTablaDeProductos(categoria)
 
     const btn = document.createElement("button");
     btn.textContent = "volver";
-    btn.addEventListener("click", () => {cargarTablaDeCategorias(categorias); }) 
+    btn.addEventListener("click", () => { cargarTablaDeCategorias(anterior); }) //ver dps
 
     tabla.appendChild(btn);
 
@@ -86,7 +92,11 @@ function cargarTablaDeProductos(categoria)
 }
 
 
-function cargarTablaDeCategorias(categorias) {
+
+export function cargarTablaDeCategorias(categorias) {
+
+    const titulo = document.getElementById("titulo");
+    titulo.textContent = "Categorias";
 
     const tabla = document.getElementById("tabla");
       tabla.innerHTML = `<thead>
@@ -94,7 +104,13 @@ function cargarTablaDeCategorias(categorias) {
                        </thead>
                        <tbody id="datos-de-tabla"></tbody>`
 
-    listarCategorias(categorias, cargarTablaDeProductos);
+    anterior = listarCategorias(categorias, cargarTablaDeProductos);
+
+    const btn = document.createElement("button");
+    btn.textContent = "volver";
+    btn.addEventListener("click", () => { cargarTablaDeFechas(fechas); })
+
+    tabla.appendChild(btn);
 
     //grafico circular
     const contenedorDeGraficos = document.getElementById("graficos-contenedor");
@@ -118,9 +134,42 @@ function cargarTablaDeCategorias(categorias) {
 
 }
 
+function cargarTablaDeFechas(fechas) 
+{
+    const titulo = document.getElementById("titulo");
+    titulo.textContent = "Fechas";
 
+    const tabla = document.getElementById("tabla");
+      tabla.innerHTML = `<thead>
+                           <tr id="cabecera-de-tabla"></tr>
+                       </thead>
+                       <tbody id="datos-de-tabla"></tbody>`
 
-cargarTablaDeCategorias(categorias);
+    listarFechas(fechas, cargarTablaDeCategorias);
+
+    //grafico de lineas
+    const contenedorDeGraficos = document.getElementById("graficos-contenedor");
+    contenedorDeGraficos.innerHTML = "";
+
+    let contenedorEstadisticas = document.getElementById("estadisticas");
+    contenedorEstadisticas.innerHTML = "";
+
+    const contenedorGraficoDeLineas = document.createElement("div");
+    contenedorGraficoDeLineas.id = "grafico-de-lineas-contenedor";
+    contenedorGraficoDeLineas.className = "grafico-de-lineas-contenedor";
+
+    const graficoDeLineas = document.createElement("canvas");
+    graficoDeLineas.id = "grafico-de-lineas";
+    graficoDeLineas.className = "grafico-de-lineas";
+
+    contenedorGraficoDeLineas.appendChild(graficoDeLineas);
+    contenedorDeGraficos.appendChild(contenedorGraficoDeLineas);
+
+    RenderizarGraficoDeLineas(fechas, graficoDeLineas);
+
+}
+
+cargarTablaDeFechas(fechas);
 
 
 

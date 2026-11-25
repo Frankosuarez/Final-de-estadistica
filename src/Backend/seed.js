@@ -1,12 +1,17 @@
-import Categoria from "./Categoria.js"
+import Fecha from "./Fecha.js";
+import Categoria from "./Categoria.js";
 import Producto from "./Producto.js";
+
+const fecha1 = new Fecha("Septiembre");
+const fecha2 = new Fecha("Octubre");
+const fecha3 = new Fecha("Noviembre");
+const fecha4 = new Fecha("Diciembre");
 
 const categoria1 = new Categoria("Electrodomesticos");
 const categoria2 = new Categoria("Fiambreria");
 const categoria3 = new Categoria("Jugueteria");
 const categoria4 = new Categoria("Muebleria");
 
-//datos de prueba
 const producto1 = new Producto("televisor", 1800, 40);
 const producto2 = new Producto("computadora", 2200, 32);
 const producto3 = new Producto("celular", 700, 75);
@@ -43,10 +48,21 @@ const producto24 = new Producto("armarios", 135, 360);
 
 const productos4 = [producto19, producto20, producto21, producto22, producto23, producto24];
 
-//agregar productos de otra categoria dps
 categoria1.agregarProducto(productos1);
 categoria2.agregarProducto(productos2);
 categoria3.agregarProducto(productos3);
 categoria4.agregarProducto(productos4);
 
-export const categorias = [categoria1, categoria2, categoria3, categoria4];
+
+const categorias1 = [categoria1, categoria2, categoria3, categoria4];
+const categorias2 = [categoria1, categoria2, categoria3];
+const categorias3 = [categoria1, categoria2, categoria4];
+const categorias4 = [categoria1, categoria3, categoria4];
+
+fecha1.agregarCategoria(categorias1);
+fecha2.agregarCategoria(categorias2);
+fecha3.agregarCategoria(categorias3);
+fecha4.agregarCategoria(categorias4);
+
+
+export const fechas = [fecha1, fecha2, fecha3, fecha4];
