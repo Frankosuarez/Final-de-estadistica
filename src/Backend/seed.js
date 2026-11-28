@@ -23,10 +23,10 @@ const productos1 = [producto1, producto2, producto3, producto4, producto5, produ
 
 const producto7 = new Producto("jamon", 20, 900);
 const producto8 = new Producto("queso", 30, 840);
-const producto9 = new Producto("salame", 25, 210);
-const producto10 = new Producto("cheddar", 26, 218);
-const producto11 = new Producto("roquefort", 40, 90);
-const producto12 = new Producto("jamon economico", 15, 200);
+const producto9 = new Producto("salame", 40, 500);
+const producto10 = new Producto("cheddar", 60, 97);
+const producto11 = new Producto("roquefort", 50, 300);
+const producto12 = new Producto("jamon economico", 110, 200);
 
 const productos2 = [producto7, producto8, producto9, producto10, producto11, producto12];
 

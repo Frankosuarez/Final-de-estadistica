@@ -10,6 +10,10 @@ import { renderizarGraficoDeDispersion } from "./Graficos/graficoDeDispersion.js
 import { renderizarGraficoDeCaja } from "./Graficos/graficoDeCaja.js";
 import { RenderizarGraficoDeLineas } from "./Graficos/graficoDeLineas.js";
 
+import { listarPorcentajes } from "./TablaDeGraficos/TablaGraficoCircular.js";
+import { generarTablaDeCaja } from "./TablaDeGraficos/TablaDeGraficoCaja.js";
+import { inicializarFormularioEstimacion } from "./TablaDeGraficos/FormularioDeRecta.js";
+
 
 let anterior = [];
 
@@ -27,9 +31,10 @@ function actualizarGraficos(categoria)
     x: precio,
     y: ventasDeProductos[indice]
   }));
-
   
   renderizarGraficoDeDispersion(canvasDispersion, puntosDispersion);
+  inicializarFormularioEstimacion(puntosDispersion);
+  
   renderizarGraficoDeCaja(canvasCaja, preciosDeProductos);
 }
 
@@ -69,7 +74,7 @@ function cargarTablaDeProductos(categoria)
     contenedorDispersion.appendChild(canvasDispersion);
 
     
-    //grafico de caja
+    //grafico de caja y su tabla de datos
     const contenedorCaja = document.createElement("div");
     contenedorCaja.id = "grafico-de-caja-contenedor";
     contenedorCaja.className = "grafico-de-caja-contenedor";
@@ -77,9 +82,11 @@ function cargarTablaDeProductos(categoria)
     const canvasCaja = document.createElement("canvas");
     canvasCaja.id = "grafico-de-caja";
 
+    const tablaDeCaja = generarTablaDeCaja(categoria);
+    console.log("tabla:",tablaDeCaja)
+
+    contenedorCaja.appendChild(tablaDeCaja);
     contenedorCaja.appendChild(canvasCaja);
-
-
 
     contenedorDeGraficos.appendChild(contenedorDispersion);
     contenedorDeGraficos.appendChild(contenedorCaja);
@@ -95,7 +102,7 @@ function cargarTablaDeProductos(categoria)
 
 
 
-export function cargarTablaDeCategorias(categorias) {
+function cargarTablaDeCategorias(categorias) {
 
     const titulo = document.getElementById("titulo");
     titulo.textContent = "Categorias";
@@ -129,6 +136,10 @@ export function cargarTablaDeCategorias(categorias) {
     graficoCircular.id = "grafico-circular";
     graficoCircular.className = "grafico-circular";
 
+    // Tabla de categorías
+    const tablaCategorias = listarPorcentajes(categorias);
+
+    contenedorGraficoCircular.appendChild(tablaCategorias);
     contenedorGraficoCircular.appendChild(graficoCircular);
     contenedorDeGraficos.appendChild(contenedorGraficoCircular);
 

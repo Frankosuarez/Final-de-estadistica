@@ -1,3 +1,5 @@
+import { calcularCuartiles } from "../../../Backend/FuncionesEstadisticas.js";
+
 export function listarProductos(categoria)
 {
     const contenedor = document.getElementById("datos-de-tabla");
@@ -47,5 +49,10 @@ export function listarProductos(categoria)
 
         contenedor.appendChild(fila);
     })
+
+    const precios = productos.map(producto => producto.precio);
+
+    let datos = calcularCuartiles(precios);
+    console.log(datos);
 
 }

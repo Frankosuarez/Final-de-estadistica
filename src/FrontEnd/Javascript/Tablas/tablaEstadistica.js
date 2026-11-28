@@ -7,7 +7,7 @@ import { calcularMedia,
          calcularCoeficienteDeCorrelacion
  } from "../../../Backend/FuncionesEstadisticas.js"; 
 
-function generarTabla(datos) 
+export function generarTabla(datos) 
 {
     const tabla = document.createElement("table");
     const tbody = document.createElement("tbody");
